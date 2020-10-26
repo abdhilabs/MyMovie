@@ -1,7 +1,11 @@
 ext {
-    def nav_version = '2.2.2'
-    def glide_version = '3.7.0'
-    def material_version = '1.1.0'
+
+    versions = [
+            nav_version     : '2.2.2',
+            timber          : '4.7.1',
+            glide_version   : '3.7.0',
+            material_version: '1.1.0'
+    ]
 
     coreDependencies = [
             kotlin_sdk       : "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version",
@@ -11,22 +15,27 @@ ext {
     ]
 
     navigationControllerDependencies = [
-            navigation_fragment: "androidx.navigation:navigation-fragment-ktx:$nav_version",
-            navigation_ui      : "androidx.navigation:navigation-ui-ktx:$nav_version"
+            navigation_fragment: "androidx.navigation:navigation-fragment-ktx:$versions.nav_version",
+            navigation_ui      : "androidx.navigation:navigation-ui-ktx:$versions.nav_version"
     ]
 
     imageLoadingDependencies = [
-            glide: "com.github.bumptech.glide:glide:$glide_version",
+            glide: "com.github.bumptech.glide:glide:$versions.glide_version",
     ]
 
     materialDesign = [
-            material: "com.google.android.material:material:$material_version"
+            material: "com.google.android.material:material:$versions.material_version"
+    ]
+
+    timberDependecies = [
+            timber: "com.jakewharton.timber:timber:$versions.timber"
     ]
 
     appDependencies = [
             coreDependencies.values(),
             navigationControllerDependencies.values(),
             materialDesign.values(),
+            timberDependecies.values(),
             imageLoadingDependencies.values()
     ]
 }
